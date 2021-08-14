@@ -37,7 +37,7 @@ const promptUser = () => {
                 return true;
 
             } else {
-                console.log('Please enter a valid gitHub username!');
+                console.log('Please enter a valid gitHub user-name!');
                 return false;
             }
         }
@@ -45,17 +45,7 @@ const promptUser = () => {
     {
         type: 'input',
         name: 'about',
-        message: 'Provide some information about yourself:',
-        Validate: infoInput => {
-            if (infoInput) {
-                return true;
-
-            } else {
-                console.log('Please enter some infromartion');
-                return false;
-            }
-        }
-        
+        message: 'Provide some information about yourself:'
     }
 ]);
 };
@@ -75,12 +65,28 @@ const promptProject = portfolioData => {
         {
             type: 'input',
             name: 'name',
-            message: 'What is the name of your project'
+            message: 'What is the name of your project',
+            Validate: projectName => {
+                if (projectName) {
+                    return true;
+                } else {
+                    console.log("Please enter project's name");
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'description',
-            messahe: 'Provide a description of the project (Required)'
+            message: 'Provide a description of the project (Required)',
+            Validate: projectDescription => {
+                if (projectDescription) {
+                    return true;
+                } else {
+                    console.log("Please provide the description");
+                    return false;
+                }
+            }
 
 
         },
@@ -93,7 +99,16 @@ const promptProject = portfolioData => {
         {
             type: 'input',
             name: 'link',
-            message: 'Enter the GitHub link to your project. (Required)'
+            message: 'Enter the GitHub link to your project. (Required)',
+            Validate: gitHUbLink => {
+                if(gitHUbLink) {
+                    return true;
+                } else {
+                    console.log("Please provide github link");
+                    return false;
+                }
+            }
+
         },
         {
             type: 'confirm',
